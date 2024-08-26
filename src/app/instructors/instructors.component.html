@@ -1,0 +1,38 @@
+
+<h1>Instructors</h1>
+<br/>
+<br/>
+<table border="1" >
+    <tr>
+        <td>
+            First Name
+        </td>
+        <td>
+            Last Name
+        </td>
+        <td>
+            Birthday
+        </td>
+        <td>
+            Overall duration of events
+        </td>
+        <td></td>
+    </tr>
+    <tr *ngFor="let instructor of instructors">
+        <td>
+            {{instructor.firstName}}
+        </td>
+        <td>
+            {{instructor.lastName}}
+        </td>
+        <td>
+            {{instructor.birthday}}
+        </td>
+        <td>
+            {{instructor.eventsOverAllDuration}}
+        </td>
+        <td>
+            <button (click)="showEvents(instructor.id)"> View calendar </button>
+        </td>
+    </tr>
+</table> 

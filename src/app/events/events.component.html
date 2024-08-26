@@ -1,0 +1,40 @@
+
+
+<h1>Insert a new event</h1>
+<form [formGroup]="form">
+    <input type="text" formControlName="title">
+    <input type="datetime-local" formControlName="startDate">
+    <input type="datetime-local" formControlName="endDate">
+    <select name="Category" formControlName="category">
+        <option value="DAY_OFF">Day off</option>
+        <option value="SEMINAR">Seminar </option>
+        <option value="PROJECT">Project</option>
+        <option value="WORKSHOP">Project</option>        
+    </select>
+    <button (click)="addEvent()" [disabled]="form.invalid">Add Event</button>
+</form>
+
+<br/>
+<br/>
+<h1>Calendar</h1>
+<full-calendar #calendar [options]="calendarOptions" (eventClick)="showInfo($event)"></full-calendar>
+
+
+<dialog #eventInfo>
+    <h1>Event management</h1>
+    <form [formGroup]="updateForm">
+        <input type="text" formControlName="title">
+        <input type="datetime-local" formControlName="startDate">
+        <input type="datetime-local" formControlName="endDate">
+        <select name="Category" formControlName="category">
+            <option value="DAY_OFF">Day off</option>
+            <option value="SEMINAR">Seminar </option>
+            <option value="PROJECT">Project</option>
+        </select>
+        <br/>
+        <br/>
+        <button (click)="updateEvent()" [disabled]="updateForm.invalid">Update Event</button>
+        <button (click)="deleteEvent()">Delete</button>
+        <button (click)="cancelUpdate()" >Cancel</button>
+    </form>
+</dialog>
